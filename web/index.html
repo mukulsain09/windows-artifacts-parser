@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Footprint Analyser</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="header-logo">
+            <h1>DIGITAL FOOTPRINT ANALYSER</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <div class="slider"></div>
+                </label>
+            </div>
+        </div>
+
+        <div class="top-bar">
+            <input type="text" id="folderPathInput" placeholder="Enter path of artifact">
+            <button id="parseFolderBtn">Parse Folder</button>
+            <button id="parseShellbagsBtn">Parse ShellBags</button>
+        </div>
+
+        <div class="status-section" id="statusSection">
+            <!-- Task status messages will appear here -->
+        </div>
+
+        <div class="table-section">
+            <table id="artifactsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Path</th>
+                        <th>Timestamp</th>
+                        <th>Last Access</th>
+                        <th>Extra</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Artifacts will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bottom-bar">
+            <button id="showCorrelationsBtn">Correlate / Timeline</button>
+            <button id="refreshBtn">Refresh</button>
+            <button id="exportCsvBtn">Export to CSV</button>
+            <button id="exportPdfBtn">Export PDF Report</button>
+            <button id="clearDbBtn">Clear DB</button>
+        </div>
+    </div>
+
+    <!-- The Modal for PDF Report Details -->
+    <div id="pdfReportModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>PDF Report Details</h2>
+            <form id="pdfReportForm">
+                <label for="caseNumber">Case Number:</label>
+                <input type="text" id="caseNumber" name="caseNumber">
+                <label for="evidenceNumber">Evidence Number:</label>
+                <input type="text" id="evidenceNumber" name="evidenceNumber">
+                <label for="uniqueDescription">Unique Description:</label>
+                <input type="text" id="uniqueDescription" name="uniqueDescription">
+                <label for="examiner">Examiner:</label>
+                <input type="text" id="examiner" name="examiner">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+                <button type="submit" id="generatePdfBtn">Generate PDF</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

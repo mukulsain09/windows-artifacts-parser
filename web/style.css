@@ -1,0 +1,330 @@
+/* --- Material Design 3 Inspired Theme --- */
+
+:root {
+    --md-sys-color-primary: #FFB800;
+    --md-sys-color-on-primary: #000000;
+    --md-sys-color-background: #FFFBFE;
+    --md-sys-color-surface: #FFFBFE;
+    --md-sys-color-surface-container: #F3EDF7;
+    --md-sys-color-surface-container-hover: #EADDFF;
+    --md-sys-color-on-surface: #1C1B1F;
+    --md-sys-color-outline: #C8C5CA;
+    --md-sys-color-shadow: #000000;
+}
+
+[data-theme="dark"] {
+    --md-sys-color-primary: #FFCF40;
+    --md-sys-color-on-primary: #000000;
+    --md-sys-color-background: #1C1B1F;
+    --md-sys-color-surface: #1C1B1F;
+    --md-sys-color-surface-container: #2B2930;
+    --md-sys-color-surface-container-hover: #4F4359;
+    --md-sys-color-on-surface: #E6E1E5;
+    --md-sys-color-outline: #49454F;
+    --md-sys-color-shadow: #000000;
+}
+
+/* General body and layout */
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: var(--md-sys-color-surface);
+    box-sizing: border-box;
+}
+
+/* Header and Bar sections */
+.header, .top-bar, .bottom-bar {
+    padding: 16px 24px;
+    background-color: var(--md-sys-color-surface);
+    border-bottom: 1px solid var(--md-sys-color-outline);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em; /* 24px */
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+}
+
+.header-logo {
+    height: 2cm;
+    width: 2cm;
+    margin-right: 16px;
+}
+
+.centered-title {
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Theme Toggle Switch */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+.theme-switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 40px;
+}
+.theme-switch input {
+    display:none;
+}
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 20px;
+}
+.slider:before {
+    background-color: #fff;
+    bottom: 2px;
+    content: "";
+    height: 16px;
+    left: 2px;
+    position: absolute;
+    transition: .4s;
+    width: 16px;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: var(--md-sys-color-primary);
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.top-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 16px; /* Increased rounding */
+    font-size: 1em;
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+}
+
+.top-bar input[type="text"]:focus {
+    outline: 2px solid var(--md-sys-color-primary);
+    border-color: transparent;
+}
+
+.bottom-bar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    border-top: 1px solid var(--md-sys-color-outline);
+    border-bottom: none;
+}
+
+button {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: none;
+    border-radius: 20px; /* Fully rounded pills */
+    padding: 10px 24px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(var(--md-sys-color-shadow), 0.12), 0 1px 2px rgba(var(--md-sys-color-shadow), 0.24);
+}
+
+button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 3px 6px rgba(var(--md-sys-color-shadow), 0.16), 0 3px 6px rgba(var(--md-sys-color-shadow), 0.23);
+}
+
+.table-section {
+    flex-grow: 1;
+    overflow: auto;
+    border-top: 1px solid var(--md-sys-color-outline);
+    padding: 0 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+table thead th {
+    background-color: var(--md-sys-color-surface);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--md-sys-color-outline);
+    font-weight: 500;
+    font-size: 0.9em;
+    color: var(--md-sys-color-on-surface);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table tbody tr {
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+table tbody tr:hover {
+    background-color: var(--md-sys-color-surface-container-hover);
+}
+
+table tbody td {
+    padding: 10px 16px; /* Reduced padding slightly */
+    white-space: nowrap;
+    border: none;
+    font-size: 0.85em; /* Reduced font size */
+}
+
+table tbody td:first-child { border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+table tbody td:last-child { border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
+
+.status-section {
+    padding: 12px 24px;
+    background-color: var(--md-sys-color-surface-container);
+    border-bottom: 1px solid var(--md-sys-color-outline);
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: var(--md-sys-color-surface);
+    margin: 10% auto;
+    padding: 24px;
+    border: none;
+    border-radius: 28px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.close-btn {
+    color: var(--md-sys-color-outline);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--md-sys-color-on-surface);
+}
+
+#pdfReportForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#pdfReportForm h2 {
+    margin-bottom: 8px;
+    color: var(--md-sys-color-on-surface);
+}
+
+#pdfReportForm label {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: var(--md-sys-color-on-surface);
+}
+
+#pdfReportForm input[type="text"],
+#pdfReportForm textarea {
+    padding: 12px;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+    font-size: 1em;
+}
+
+#pdfReportForm button[type="submit"] {
+    align-self: flex-end;
+    margin-top: 8px;
+}
+
+/* --- Scrollbar Styling --- */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--md-sys-color-outline);
+    border-radius: 20px;
+    border: 3px solid var(--md-sys-color-surface);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--md-sys-color-on-surface);
+}
+
+/* For Firefox */
+.table-section {
+    scrollbar-width: thin;
+    scrollbar-color: var(--md-sys-color-outline) var(--md-sys-color-surface);
+    flex-grow: 1;
+    overflow: auto;
+    border-top: 1px solid var(--md-sys-color-outline);
+    padding: 0 24px;
+}
+
