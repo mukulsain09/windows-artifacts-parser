@@ -1,6 +1,6 @@
 # ⚠️ ARCHIVED / DEPRECATED
-   2 This version is no longer maintained. Please use the updated and significantly improved version here:
-   3 👉 **[Windows Forensic Analysis Suite v2.0](https://github.com/mukulsain09/Windows-Forensic-Analysis-Suite-Version-2.0-)**
+   This version is no longer maintained. Please use the updated and significantly improved version here:
+   👉 **[Windows Forensic Analysis Suite v2.0](https://github.com/mukulsain09/Windows-Forensic-Analysis-Suite-Version-2.0-)**
      
 # Digital Footprint Analyser (Windows Artifacts Parser)
 
